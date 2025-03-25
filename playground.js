@@ -41,3 +41,31 @@ const number2 = [40, 57, 65];
 const newArray = [...number1, ...number2];
 
 console.log(sumNumbers(...newArray));
+
+
+// step 7
+
+
+let fetchData = new Promise((resolve, reject) => {
+    let success = true;  
+    setTimeout(() => {
+        if (success) {    
+            resolve("Data fetched successfully!");
+        } else {
+            reject("Failed to fetch data.");
+        }
+    }, 2000); 
+});
+
+fetchData
+    .then((message) => {
+        console.log(message); 
+        return "Next step after success";
+    })
+    .then((nextMessage) => {
+        console.log(nextMessage);  
+    })
+    .catch((error) => {
+        console.log(error);  
+    });
+
